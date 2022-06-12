@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout layout;
     ProgressDialog pd;
     AdView mAdView;
+    ////up date
 
 
     @Override
