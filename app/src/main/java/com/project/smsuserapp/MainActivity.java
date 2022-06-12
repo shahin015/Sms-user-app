@@ -17,6 +17,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -51,6 +52,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
 
+
     private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712";
     private  TextView maraque;
     RecyclerView recyclerView;
@@ -73,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         maraque=findViewById(R.id.maraque);
+
+
+
         maraque.setSelected(true);
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -154,10 +159,11 @@ public class MainActivity extends AppCompatActivity {
                     newText.setText(rfname);
                     layout.addView(newrecyclerView);
                     newText.setPadding(1,1,1,1);
-                    newText.setTextSize(25);
+                    newText.setTextSize(20);
+
                     newText.setGravity(Gravity.CENTER);
                     newText.setAllCaps(false);
-                    newText.setTextColor(getResources().getColor(R.color.black));
+                    newText.setTextColor(getResources().getColor(R.color.blue));
                     layout.addView(newText);
                     newrecyclerView.setLayoutManager(new GridLayoutManager(getApplication(),2,GridLayoutManager.VERTICAL,false));
                     newrecyclerView.setHasFixedSize(true);
@@ -322,6 +328,7 @@ public class MainActivity extends AppCompatActivity {
 
         public class AdminViewAdapter extends RecyclerView.ViewHolder{
             private ImageView imageView;
+
 
 
             //   private Button link,titile;

@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="5dp"
+
+    android:background="#F7FCFF"
     tools:context=".MainActivity">
 
 
@@ -18,40 +21,51 @@
         ads:adSize="BANNER"
         ads:adUnitId="@string/banner_ad_unit_id">
     </com.google.android.gms.ads.AdView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/maraque"
-                android:textAllCaps="false"
-               android:layout_below="@+id/adView"
-                android:text="asdfasdfasdfasdfasdfasdfasdfsdfasdfasdfsdfasdfsadfsdfsdfsdasfdasdfasdf"
-                android:textSize="25sp"
-                android:padding="10dp"
-                android:layout_marginTop="5dp"
-                android:singleLine="true"
-                android:ellipsize="marquee"
-                android:marqueeRepeatLimit="marquee_forever"
-                android:scrollHorizontally="true"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:textColor="@color/black"
+    <androidx.cardview.widget.CardView
 
-                />
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="1dp"
+        android:id="@+id/cardview"
+        android:layout_below="@+id/adView"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/maraque"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+
+            android:marqueeRepeatLimit="marquee_forever"
+            android:padding="5dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="asdfasdfasdfasdfasdfasdfasdfsdfasdfasdfsdfasdfsadfsdfsdfsdasfdasdfasdf"
+            android:textAllCaps="false"
+            android:textColor="#03A9F4"
+            android:textSize="15sp" />
+
+
+    </androidx.cardview.widget.CardView>
+
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/maraque"
-        >
+        android:layout_below="@+id/cardview">
 
 
         <LinearLayout
             android:id="@+id/linear_layout"
-            android:layout_below="@+id/maraque"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginTop="15dp"
-            >
+            android:layout_below="@+id/maraque"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
 
 
         </LinearLayout>
