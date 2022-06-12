@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id">
+    </com.google.android.gms.ads.AdView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/maraque"
+                android:textAllCaps="false"
+               android:layout_below="@+id/adView"
+                android:text="asdfasdfasdfasdfasdfasdfasdfsdfasdfasdfsdfasdfsadfsdfsdfsdasfdasdfasdf"
+                android:textSize="25sp"
+                android:padding="10dp"
+                android:layout_marginTop="5dp"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:textColor="@color/black"
+
+                />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/maraque"
+        >
+
+
+        <LinearLayout
+            android:id="@+id/linear_layout"
+            android:layout_below="@+id/maraque"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="15dp"
+            >
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

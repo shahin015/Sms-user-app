@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "113231684731",
+    "firebase_url": "https://sms-admin-dd200-default-rtdb.firebaseio.com",
+    "project_id": "sms-admin-dd200",
+    "storage_bucket": "sms-admin-dd200.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113231684731:android:db85852da1de37b7042ede",
+        "android_client_info": {
+          "package_name": "com.project.smsadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "113231684731-tueuke6h82bg868j07ifuqvjvukfr7lm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDYBV3KzxbSW8HOF5yVGEHJHOO7uF_wds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "113231684731-tueuke6h82bg868j07ifuqvjvukfr7lm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113231684731:android:b93be0395ca7c1fe042ede",
+        "android_client_info": {
+          "package_name": "com.project.smsuserapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "113231684731-tueuke6h82bg868j07ifuqvjvukfr7lm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDYBV3KzxbSW8HOF5yVGEHJHOO7uF_wds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "113231684731-tueuke6h82bg868j07ifuqvjvukfr7lm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
