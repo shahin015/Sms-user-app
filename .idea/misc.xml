@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Sms-user-app/app/src/main/res/drawable/color.xml" value="0.1" />
+        <entry key="..\:/Sms-user-app/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Sms-user-app/app/src/main/res/layout/activity_viewar.xml" value="0.12" />
+        <entry key="..\:/Sms-user-app/app/src/main/res/layout/item.xml" value="0.25" />
+        <entry key="..\:/Sms-user-app/app/src/main/res/layout/layout2.xml" value="0.33" />
         <entry key="..\:/Users/Deluar H Nyeem/AndroidStudioProjects/Sms-user-app/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.338" />
         <entry key="..\:/Users/Deluar H Nyeem/AndroidStudioProjects/Sms-user-app/app/src/main/res/drawable/ic_baseline_content_copy_24.xml" value="0.338" />
         <entry key="..\:/Users/Deluar H Nyeem/AndroidStudioProjects/Sms-user-app/app/src/main/res/drawable/ic_dwonload.xml" value="0.338" />
@@ -25,7 +30,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

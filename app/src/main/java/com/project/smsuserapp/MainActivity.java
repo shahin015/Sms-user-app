@@ -1,7 +1,5 @@
 package com.project.smsuserapp;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -12,21 +10,17 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
@@ -49,9 +43,12 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class MainActivity extends AppCompatActivity {
 
 
+    String foldername;
 
     private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712";
     private  TextView maraque;
@@ -115,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
             public void onAdClosed() {
                 // Code to be executed when the user is about to return
                 // to the app after tapping on an ad.
+
             }
         });
 
@@ -148,25 +146,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(ListResult listResult) {
                 final List<String> reflist=new ArrayList<String>();
-                for (StorageReference storageReference:listResult.getPrefixes()){
 
+                for (StorageReference storageReference:listResult.getPrefixes()){
                     rfname= storageReference.getName();
                     reflist.add(0,rfname);
                     //  Toast.makeText(MainActivity.this, ""+rfname, Toast.LENGTH_SHORT).show();
                     reference= FirebaseDatabase.getInstance().getReference().child(rfname);
                     RecyclerView newrecyclerView=new RecyclerView(getApplicationContext());
-                    TextView newText=new TextView(getApplicationContext());
-                    newText.setText(rfname);
                     layout.addView(newrecyclerView);
-                    newText.setPadding(1,1,1,1);
-                    newText.setTextSize(20);
-
-                    newText.setGravity(Gravity.CENTER);
-                    newText.setAllCaps(false);
-                    newText.setTextColor(getResources().getColor(R.color.blue));
-                    layout.addView(newText);
-                    newrecyclerView.setLayoutManager(new GridLayoutManager(getApplication(),2,GridLayoutManager.VERTICAL,false));
-                    newrecyclerView.setHasFixedSize(true);
                     reference.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot){
@@ -174,11 +161,15 @@ public class MainActivity extends AppCompatActivity {
                             for (DataSnapshot snapshot1:snapshot.getChildren()){
                                 Data data =snapshot1.getValue(Data.class);
                                 list.add(0,data);
-                                adapter=new AdminAdpter(MainActivity.this,list);
-                                adapter.notifyDataSetChanged();
-                                newrecyclerView.setAdapter(adapter);
-                                pd.dismiss();
+
+
                             }
+                            adapter=new AdminAdpter(MainActivity.this,list);
+                            adapter.notifyDataSetChanged();
+                            newrecyclerView.setLayoutManager(new GridLayoutManager(getApplication(),2,GridLayoutManager.VERTICAL,false));
+                            newrecyclerView.setHasFixedSize(true);
+                            newrecyclerView.setAdapter(adapter);
+                            pd.dismiss();
 
 
                         }
@@ -288,20 +279,22 @@ public class MainActivity extends AppCompatActivity {
         public void onBindViewHolder(@NonNull AdminViewAdapter holder, @SuppressLint("RecyclerView") int position) {
 
             Data data=list.get(position);
-            String foldername=data.getFoldername();
+            foldername=data.getFoldername();
+            if (!list.get(position).getFoldername().contains("Good Morning")){
+                Picasso.get().load(data.getImage()).into(holder.imageView);
 
 
+            }else {
+                Picasso.get().load("https://i.pinimg.com/originals/2f/9d/95/2f9d9562eb2252ae132b4bf8258aa18a.jpg").into(holder.imageView);}
 
-            Picasso.get().load(data.getImage()).into(holder.imageView);
+            holder.foldernames.setText(data.getFoldername());
+
             holder.imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    //showInterstitial();
-
-
                     Intent intent=new Intent(MainActivity.this, Viewar.class);
-                    intent.putExtra("folder",foldername);
+                    intent.putExtra("folder",list.get(position).getFoldername());
                     context.startActivity(intent);
                     finish();
                     showInterstitial();
@@ -316,19 +309,17 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getItemCount() {
-            int size=2;
 
-            if (list==null||list.size()==1){
-                size=0;
-            }
 
-            return size;
+
+            return 2;
         }
 
 
         public class AdminViewAdapter extends RecyclerView.ViewHolder{
-            private ImageView imageView;
+            private CircleImageView imageView;
 
+            private TextView foldernames;
 
 
             //   private Button link,titile;
@@ -341,6 +332,8 @@ public class MainActivity extends AppCompatActivity {
                 //  link=itemView.findViewById(R.id.youtube);
                 ///  titile=itemView.findViewById(R.id.downloadbutton);
                 imageView=itemView.findViewById(R.id.item_imageview1);
+                foldernames=itemView.findViewById(R.id.foldernme);
+
 
             }
         }

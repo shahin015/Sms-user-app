@@ -72,11 +72,6 @@ public class Viewar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewar);
-
-
-
-
-
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
@@ -126,14 +121,9 @@ public class Viewar extends AppCompatActivity {
 
         reference= FirebaseDatabase.getInstance().getReference().child(refFoldername);
         RecyclerView newrecyclerView=new RecyclerView(getApplicationContext());
-
         layout2.addView(newrecyclerView);
         newrecyclerView.setLayoutManager(new LinearLayoutManager(getApplication(),LinearLayoutManager.VERTICAL,false));
         newrecyclerView.setHasFixedSize(true);
-
-
-
-
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot){
